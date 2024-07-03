@@ -38,12 +38,10 @@ body {
   position: absolute;
 }
 
-/* 畫布容器和工具列 */
-#canvas-container {
+/* #canvas-container {
   flex: 1;
   background-color: #fff;
   border: 3px solid pink;
-  /* 保留邊框 */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -80,55 +78,44 @@ body {
   height: 20%;
 }
 
-/* 工具按鈕樣式 */
 .tool-button {
   height: 48px;
-  /* 統一按鈕的高度 */
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, border 0.3s;
 }
 
-/* 不同功能按鈕的顏色 */
 .tool-button.color-tool {
   background-color: #2c9b30;
-  /* 綠色 */
 }
 
 .tool-button.eraser-tool {
   background-color: #ffeb3b;
-  /* 黃色 */
 }
 
 .tool-button.undo-tool {
   background-color: #f44336;
-  /* 紅色 */
 }
 
 .tool-button.clear-canvas-tool {
   background-color: #e91e63;
-  /* 淺紅 */
 }
 
 .tool-button.clear-all-tool {
   background-color: #9c27b0;
-  /* 紫色 */
 }
 
 .tool-button.upload-tool {
   background-color: #03a9f4;
-  /* 藍色 */
 }
 
 .tool-button.save-tool {
   background-color: #009688;
-  /* 深綠 */
 }
 
 .tool-button.display-tool {
   background-color: #cddc39;
-  /* 黃綠 */
 }
 
 .tool-button.confirm-color {
@@ -145,12 +132,10 @@ body {
 
 #tools input[type="range"] {
   height: 48px;
-  /* 統一範圍輸入的高度 */
 }
 
 #color-display {
   height: 48px;
-  /* 設置顏色顯示的高度 */
   cursor: pointer;
   border: 2px solid #000;
   display: flex;
@@ -231,7 +216,6 @@ label[for="upload-template"]:hover {
   display: none;
 }
 
-/* 橫向版型 */
 .horizontal-layout {
   flex-direction: row;
 }
@@ -249,18 +233,15 @@ label[for="upload-template"]:hover {
 
 .horizontal-layout #tools {
   flex-direction: column;
-  /* 工具列縱向排列 */
   width: 20%;
   height: 100%;
 }
 
-/* 小高度/小寬度下的按鈕調整 */
 @media (max-height: 400px) {
   #tools button,
   #tools input[type="range"],
   #color-display {
     height: 30px;
-    /* 設置小高度下按鈕的高度 */
   }
 
   .color {
@@ -283,4 +264,4 @@ footer {
   width: 100%;
   border-top: 1px solid #ccc;
   opacity: 0.5;
-}
+} */

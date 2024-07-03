@@ -50,7 +50,7 @@ let originalDrawingImage = null;
 // 2. 批次新增監聽事件
 window.onload = function () {
     // document.body.style.zoom = "100%";
-    document.body.style.zoom = (window.innerWidth / window.outerWidth);
+    // document.body.style.zoom = (window.innerWidth / window.outerWidth);
     // 畫布和工具列的初始化代碼
     // resizeCanvas();
     handleOrientationChange();

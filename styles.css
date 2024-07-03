@@ -2,6 +2,8 @@
 html {
   margin: 0;
   padding: 0;
+  top:0;
+  left: 0;
   height: 100svh;
   width: 100vw;
   display: flex;
@@ -13,11 +15,14 @@ html {
   font-size: 12px;
   border: 5px dashed blue;
   border-radius: 10px;
+  position: absolute;
 }
 
 body {
   margin: 0;
   padding: 0;
+  top:0;
+  left: 0;
   height: 100svh;
   width: 100vw;
   display: flex;
@@ -30,6 +35,7 @@ body {
   touch-action: manipulation;
   border: 3px dashed red;
   border-radius: 10px;
+  position: absolute;
 }
 
 /* 畫布容器和工具列 */

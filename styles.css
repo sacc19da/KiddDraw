@@ -1,10 +1,8 @@
 /* 基本樣式 */
-html,
-body {
+html {
   margin: 0;
   padding: 0;
   height: 100svh;
-  /* 使用視口高度單位 */
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -12,10 +10,25 @@ body {
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
-  /* 隱藏滾動條 */
+  font-size: 12px;
+  border: 5px dashed blue;
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100svh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
   font-size: 12px;
   touch-action: manipulation;
-  border: 1.5px dashed blue;
+  border: 3px dashed red;
   border-radius: 10px;
 }
 
@@ -237,7 +250,6 @@ label[for="upload-template"]:hover {
 
 /* 小高度/小寬度下的按鈕調整 */
 @media (max-height: 400px) {
-
   #tools button,
   #tools input[type="range"],
   #color-display {

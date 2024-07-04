@@ -1,46 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>九杯奶茶幼兒創意畫布</title>
-    <link rel="stylesheet" href="fontawesome-free-6.5.2-web/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <link rel="icon" href="https://fav.farm/✅" />
 </head>
 <body>
-    <div id="canvas-container">
-        <canvas id="template-layer"></canvas>
-        <canvas id="drawing-layer"></canvas>
-    </div>
-    <div id="tools">
-        <button id="pencil-button" class="tool-button color-tool"><i class="fas fa-pencil-alt"></i></button>
-        <button id="brush-button" class="tool-button color-tool"><i class="fas fa-paint-brush"></i></button>
-        <button id="glitter-button" class="tool-button color-tool"><i class="fas fa-star"></i></button>
-        <button id="spray-button" class="tool-button color-tool"><i class="fas fa-spray-can"></i></button>
-        <button id="eraser-button" class="tool-button eraser-tool"><i class="fas fa-eraser"></i></button>
-        <button id="undo-button" class="tool-button undo-tool"><i class="fas fa-undo"></i></button>
-        <input id="size-slider" type="range" min="1" max="100" value="2">
-        <button id="clear-canvas-button" class="tool-button clear-canvas-tool"><i class="fas fa-chalkboard"></i></button>
-        <button id="clear-all-button" class="tool-button clear-all-tool" style="background-color:red;"><i class="fas fa-trash-alt"></i></button>
-        <div id="color-display" class="tool-button display-tool">
-            <div id="selected-color" style="background-color: #000000;"></div>
-        </div>
-        <button id="upload-template-button" class="tool-button upload-tool">
-            <label for="upload-template"><i class="fas fa-upload"></i></label>
-            <input type="file" id="upload-template" accept="image/*">
-        </button>
-        <button id="save-button" class="tool-button save-tool"><i class="fas fa-save"></i></button>
-    </div>
-    <div id="color-picker">
-        <div id="fixed-colors">
-            <!-- 顏色選擇 -->
-        </div>
-        <input type="color" id="custom-color-picker" value="#000000">
-    </div>
-    <footer>
-        <p>作者: SaccWu | mail: sacc19da@gmail.com</p>
-        <p>說明：非經同意，請勿下載轉使用</p>
-    </footer>
-    <script src="script.js"></script>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+ctx.strokeStyle = '#BADA55';
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+ctx.lineWidth = 100;
+// ctx.globalCompositeOperation = 'multiply';
+
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+let hue = 0;
+let direction = true;
+
+function draw(e) {
+  if (!isDrawing) return; // stop the fn from running when they are not moused down
+  console.log(e);
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+  ctx.beginPath();
+  // start from
+  ctx.moveTo(lastX, lastY);
+  // go to
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+
+  hue++;
+  if (hue >= 360) {
+    hue = 0;
+  }
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction;
+  }
+
+  if(direction) {
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--;
+  }
+
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
+
+</script>
+
+<style>
+  html, body {
+    margin: 0;
+  }
+</style>
+
 </body>
 </html>
